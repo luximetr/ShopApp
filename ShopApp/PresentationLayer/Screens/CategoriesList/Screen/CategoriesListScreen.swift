@@ -13,7 +13,12 @@ struct CategoriesListScreen: View {
   
   var body: some View {
     VStack {
-      Text("\(currentPage)")
+      Picker("Page", selection: $currentPage) {
+        Text("Page1").tag(0)
+        Text("Page2").tag(1)
+      }
+      .pickerStyle(SegmentedPickerStyle())
+      .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
       PageView([
         ProductListScreen(),
         ProductListScreen()
