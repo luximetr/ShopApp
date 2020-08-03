@@ -26,6 +26,8 @@ struct PageViewController: UIViewControllerRepresentable {
     return pageViewController
   }
   
+  // MARK: - Update
+  
   func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
     let nextVC = controllers[currentPage]
     let selectedPageIndex = getSelectedPageIndex(pageVC: pageViewController)
@@ -42,6 +44,8 @@ struct PageViewController: UIViewControllerRepresentable {
   private func getPageShowDirection(currentIndex: Int, nextIndex: Int) -> UIPageViewController.NavigationDirection {
     return nextIndex > currentIndex ? .forward : .reverse
   }
+  
+  // MARK: - Coordinator
   
   class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     var parent: PageViewController

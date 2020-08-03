@@ -35,13 +35,6 @@ struct ProductListScreenView: View {
 
 struct ProductListScreenView_Previews: PreviewProvider {
   static var previews: some View {
-    ProductListScreenView(products: [
-      Product(imageURL: productImage, name: "Produc 1рурло рфоывр офрыолв фолырвt 1"),
-      Product(imageURL: productImage, name: "Produ пафаварлофвра олфрвало рфовла ct 2"),
-      Product(imageURL: productImage, name: "Produйуарй оура олйруало йуолар ойлура олct 3"),
-      Product(imageURL: productImage, name: "Product 5")
-    ])
+    ProductListScreenView(products: mockProducts)
   }
 }
-
-let productImage = URL(string: "https://www.gettyimages.pt/gi-resources/images/Homepage/Hero/PT/PT_hero_42_153645159.jpg")

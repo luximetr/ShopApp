@@ -13,6 +13,12 @@ struct Product {
   let categoryId: CategoryIdType
   let imageURL: URL?
   let name: String
+  
+  init(categoryId: CategoryIdType = "", imageURL: URL? = nil, name: String = "") {
+    self.name = name
+    self.imageURL = imageURL
+    self.categoryId = categoryId
+  }
 }
 
 typealias ProductIdType = String

@@ -71,14 +71,14 @@ struct ProductListItemView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       ProductListItemView(
-        imageURL: productImage,
+        imageURL: nil,
         title: "Product fjdskljflks jdflj slkdjflk sjdflkj sdlkfj lskdjflk sjdlfkjd asdj lkajsdk jalksjdkl ajskldj kl aljsdkl jaskld sdlkfj",
         subtitle: "Subtitle jafkdjf lkjadlkf jalkdjf klajdfkl jadklfj akldjfk ladfkj adklfj akldjf kald",
         price: "12.03 fjakld fjlkadj fkajd fkljadlkf jkaldfj  fadkfakld jfklaj dklfja kldjflk ajdfkl"
       )
         .previewLayout(.fixed(width: 360, height: 140))
       ProductListItemView(
-        imageURL: productImage,
+        imageURL: nil,
         title: "Product",
         subtitle: "Subtitle",
         price: "12.03"

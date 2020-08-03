@@ -18,9 +18,9 @@ class URLSessionWebAPIWorker {
   
   // MARK: - Life cycle
   
-  init(session: URLSession, requestComposer: URLRequestComposer) {
-    self.session = session
-    self.requestComposer = requestComposer
+  init() {
+    self.session = .shared
+    self.requestComposer = URLRequestComposer(baseURL: "baseURL://")
   }
   
   // MARK: - Create request
@@ -29,7 +29,8 @@ class URLSessionWebAPIWorker {
       endpoint: String,
       httpMethod: String,
       customHeaders: [String: String] = [:],
-      params: [String: Any] = [:]) -> URLRequest {
+      params: [String: Any] = [:]
+  ) -> URLRequest {
     return createURLRequest(
       endpoint: endpoint,
       httpMethod: httpMethod,
@@ -43,7 +44,8 @@ class URLSessionWebAPIWorker {
       httpMethod: String,
       customHeaders: [String: String] = [:],
       contentType: String,
-      body: Data?) -> URLRequest {
+      body: Data?
+  ) -> URLRequest {
     var request = requestComposer.createRequest(
       endpoint: endpoint,
       customHeaders: customHeaders,

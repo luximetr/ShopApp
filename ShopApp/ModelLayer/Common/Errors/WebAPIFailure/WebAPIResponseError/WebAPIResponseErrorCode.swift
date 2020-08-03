@@ -10,5 +10,4 @@ import Foundation
 
 enum WebAPIResponseErrorCode: Int {
   case unknown = -1
-  case entityNotFound = 1
 }
