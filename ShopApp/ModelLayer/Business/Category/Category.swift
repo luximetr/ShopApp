@@ -9,15 +9,23 @@
 import Foundation
 
 struct Category {
-  let id: CategoryIdType = UUID().uuidString
+  let id: CategoryIdType
   let name: String
 }
 
 typealias CategoryIdType = String
 
-let mockCategory = Category(name: "Earphones")
+// Mocks
+
+enum CategoryId: String {
+  case earphones
+  case smartphones
+  case laptops
+}
+
+let mockCategory = Category(id: CategoryId.earphones.rawValue, name: "Earphones")
 let mockCategories = [
   mockCategory,
-  Category(name: "Smartphones"),
-  Category(name: "Laptops")
+  Category(id: CategoryId.smartphones.rawValue, name: "Smartphones"),
+  Category(id: CategoryId.laptops.rawValue, name: "Laptops")
 ]

@@ -1,5 +1,5 @@
 //
-//  URLSessionWebAPIWorker.swift
+//  URLSessionWebAPI.swift
 //  CVApp
 //
 //  Created by Oleksandr Orlov on 11/4/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class URLSessionWebAPIWorker {
+class URLSessionWebAPI {
   
   // MARK: - Dependencies
   

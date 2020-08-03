@@ -39,11 +39,13 @@
 		DB16AB3424D0751000B33B2A /* ServiceErrorConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AB2824D0751000B33B2A /* ServiceErrorConvertor.swift */; };
 		DB16AB3524D0751000B33B2A /* CacheError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AB2A24D0751000B33B2A /* CacheError.swift */; };
 		DB16AB3A24D075BC00B33B2A /* URLRequestComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AB3824D075BC00B33B2A /* URLRequestComposer.swift */; };
-		DB16AB3B24D075BC00B33B2A /* URLSessionWebAPIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AB3924D075BC00B33B2A /* URLSessionWebAPIWorker.swift */; };
+		DB16AB3B24D075BC00B33B2A /* URLSessionWebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AB3924D075BC00B33B2A /* URLSessionWebAPI.swift */; };
 		DB421EAA24D834B800057B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB421EA924D834B800057B55 /* AppDelegate.swift */; };
 		DB421EAD24D836B000057B55 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB421EAC24D836B000057B55 /* CategoriesService.swift */; };
 		DB421EB024D83AAB00057B55 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB421EAF24D83AAB00057B55 /* ActivityIndicator.swift */; };
 		DB421EB224D83BD100057B55 /* CategoriesListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB421EB124D83BD100057B55 /* CategoriesListScreenView.swift */; };
+		DB421EB424D83F8500057B55 /* GetProductsWebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB421EB324D83F8500057B55 /* GetProductsWebAPI.swift */; };
+		DB421EB624D8432E00057B55 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB421EB524D8432E00057B55 /* ProductsService.swift */; };
 		DB86F6D124CC021E00B0F609 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F6D024CC021E00B0F609 /* SceneDelegate.swift */; };
 		DB86F6D524CC022000B0F609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB86F6D424CC022000B0F609 /* Assets.xcassets */; };
 		DB86F6D824CC022000B0F609 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB86F6D724CC022000B0F609 /* Preview Assets.xcassets */; };
@@ -87,11 +89,13 @@
 		DB16AB2824D0751000B33B2A /* ServiceErrorConvertor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceErrorConvertor.swift; sourceTree = "<group>"; };
 		DB16AB2A24D0751000B33B2A /* CacheError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheError.swift; sourceTree = "<group>"; };
 		DB16AB3824D075BC00B33B2A /* URLRequestComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestComposer.swift; sourceTree = "<group>"; };
-		DB16AB3924D075BC00B33B2A /* URLSessionWebAPIWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionWebAPIWorker.swift; sourceTree = "<group>"; };
+		DB16AB3924D075BC00B33B2A /* URLSessionWebAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionWebAPI.swift; sourceTree = "<group>"; };
 		DB421EA924D834B800057B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB421EAC24D836B000057B55 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		DB421EAF24D83AAB00057B55 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		DB421EB124D83BD100057B55 /* CategoriesListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListScreenView.swift; sourceTree = "<group>"; };
+		DB421EB324D83F8500057B55 /* GetProductsWebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsWebAPI.swift; sourceTree = "<group>"; };
+		DB421EB524D8432E00057B55 /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		DB86F6CB24CC021E00B0F609 /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB86F6D024CC021E00B0F609 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB86F6D424CC022000B0F609 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -361,7 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				DB16AB3824D075BC00B33B2A /* URLRequestComposer.swift */,
-				DB16AB3924D075BC00B33B2A /* URLSessionWebAPIWorker.swift */,
+				DB16AB3924D075BC00B33B2A /* URLSessionWebAPI.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -370,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				DB16AB0524D073F300B33B2A /* GetCategoriesWebAPI.swift */,
+				DB421EB324D83F8500057B55 /* GetProductsWebAPI.swift */,
 			);
 			path = WebAPI;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				DB421EAC24D836B000057B55 /* CategoriesService.swift */,
+				DB421EB524D8432E00057B55 /* ProductsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -624,6 +630,7 @@
 				DB0ED8F624CDDA2C000CFE8B /* CategoriesListScreen.swift in Sources */,
 				DB16AB1524D074FE00B33B2A /* CacheResult.swift in Sources */,
 				DB0ED8EB24CDC80C000CFE8B /* Product.swift in Sources */,
+				DB421EB624D8432E00057B55 /* ProductsService.swift in Sources */,
 				DB16AB3024D0751000B33B2A /* WebAPIResponseErrorFactory.swift in Sources */,
 				DB0ED8D924CD51E5000CFE8B /* FontFamilly.swift in Sources */,
 				DB16AB2D24D0751000B33B2A /* WebAPIRequestError.swift in Sources */,
@@ -647,8 +654,9 @@
 				DB16AB3224D0751000B33B2A /* WebAPIResponseErrorCode.swift in Sources */,
 				DB0ED8D324CD51B6000CFE8B /* Font+Extension.swift in Sources */,
 				DB16AB1424D074FE00B33B2A /* WebAPIResult.swift in Sources */,
-				DB16AB3B24D075BC00B33B2A /* URLSessionWebAPIWorker.swift in Sources */,
+				DB16AB3B24D075BC00B33B2A /* URLSessionWebAPI.swift in Sources */,
 				DB0ED8F324CDD81B000CFE8B /* PageViewController.swift in Sources */,
+				DB421EB424D83F8500057B55 /* GetProductsWebAPI.swift in Sources */,
 				DB16AB2E24D0751000B33B2A /* WebAPIRequestErrorFactory.swift in Sources */,
 				DB421EB024D83AAB00057B55 /* ActivityIndicator.swift in Sources */,
 				DB16AB3124D0751000B33B2A /* WebAPIResponseErrorJSONConvertor.swift in Sources */,

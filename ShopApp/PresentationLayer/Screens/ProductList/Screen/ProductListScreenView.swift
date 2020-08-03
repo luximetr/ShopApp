@@ -11,10 +11,17 @@ import SwiftUI
 
 struct ProductListScreenView: View {
   
-  var products: [Product]
+  @Binding var products: [Product]
+  @Binding var isLoading: Bool
   
   var body: some View {
-    productList
+    Group {
+      if isLoading {
+        ActivityIndicator(style: .medium)
+      } else {
+        productList
+      }
+    }
   }
   
   private var productList: some View {
@@ -23,8 +30,8 @@ struct ProductListScreenView: View {
         ProductListItemView(
           imageURL: product.imageURL,
           title: product.name,
-          subtitle: "Subtitle",
-          price: "$10.44")
+          subtitle: product.depiction,
+          price: "$\(product.price)")
             .padding([.top, .bottom], 2)
             .listRowBackground(appearance.background.secondary)
       }
@@ -34,7 +41,9 @@ struct ProductListScreenView: View {
 }
 
 struct ProductListScreenView_Previews: PreviewProvider {
+  @State static var isLoading = false
+  @State static var products = mockProducts
   static var previews: some View {
-    ProductListScreenView(products: mockProducts)
+    ProductListScreenView(products: $products, isLoading: $isLoading)
   }
 }

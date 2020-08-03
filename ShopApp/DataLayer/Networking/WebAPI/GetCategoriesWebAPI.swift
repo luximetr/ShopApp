@@ -8,20 +8,12 @@
 
 import Foundation
 
-class GetCategoriesWebAPI: URLSessionWebAPIWorker {
+class GetCategoriesWebAPI: URLSessionWebAPI {
   
   func getCategories(completion: @escaping Completion) {
     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-      completion(.success(self.createMockCategories()))
+      completion(.success(mockCategories))
     })
-  }
-  
-  private func createMockCategories() -> [Category] {
-    return [
-      Category(name: "Smartphones"),
-      Category(name: "Laptops"),
-      Category(name: "Earphones")
-    ]
   }
   
   typealias Completion = (WebAPIResult<[Category]>) -> Void
