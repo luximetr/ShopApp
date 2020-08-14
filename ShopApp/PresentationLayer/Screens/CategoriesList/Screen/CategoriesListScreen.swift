@@ -11,27 +11,47 @@ import SwiftUI
 struct CategoriesListScreen: View {
   
   @State var currentPage: Int = 0
-  @State var categories: [Category] = mockCategories
+  @State var categories: [Category] = []
   @State var isLoading: Bool = false
+  @State var dataLoaded: Bool = false
+  @State var isCartPresented: Bool = false
   
   private let categoriesService = CategoriesService()
   
-  var body: some View {
-    CategoriesListScreenView(
-      categories: $categories,
-      isLoading: $isLoading
-    ).onAppear(perform: {
-      self.isLoading = true
-      self.categoriesService.getCategories(completion: { result in
-        self.isLoading = false
-        switch result {
-          case .success(let categories):
-            self.categories = categories
-          case .failure(let error):
-            print(error)
-        }
-      })
+  private func viewOnAppear() {
+    guard !self.dataLoaded else { return }
+    self.isLoading = true
+    self.categoriesService.getCategories(completion: { result in
+      self.isLoading = false
+      self.dataLoaded = true
+      switch result {
+        case .success(let categories):
+          self.categories = categories
+        case .failure(let error):
+          print(error)
+      }
     })
+  }
+  
+  var body: some View {
+    NavigationView {
+      CategoriesListScreenView(
+        categories: $categories,
+        isLoading: $isLoading
+      )
+        .navigationBarTitle("Categories", displayMode: .inline)
+        .navigationBarItems(trailing:
+          Button(action: {
+            self.isCartPresented = true
+          }) {
+            Text("Cart")
+          }
+      )
+    }
+    .onAppear(perform: {
+      self.viewOnAppear()
+    }).sheet(isPresented: self.$isCartPresented, content: CartItemsListScreen.init)
+    
   }
 }
 

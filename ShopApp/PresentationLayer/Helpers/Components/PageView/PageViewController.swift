@@ -29,6 +29,7 @@ struct PageViewController: UIViewControllerRepresentable {
   // MARK: - Update
   
   func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
+    guard !controllers.isEmpty else { return }
     let nextVC = controllers[currentPage]
     let selectedPageIndex = getSelectedPageIndex(pageVC: pageViewController)
     let direction = getPageShowDirection(currentIndex: selectedPageIndex, nextIndex: currentPage)

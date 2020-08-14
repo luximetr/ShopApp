@@ -25,16 +25,23 @@ struct CategoriesListScreenView: View {
   }
   
   private var dataContent: some View {
-    VStack {
-      ScrollTextSegmentedView(
-        selectedIndex: $currentPage,
-        data: self.categories.map { $0.name })
-        .padding(.top, 12).padding(.bottom, 4)
-      PageView(
-        self.categories.map { ProductListScreen(category: $0) },
-        currentPage: $currentPage)
+    List {
+      ForEach(categories, id: \.id) { category in
+        CategoriesListItemView(category: category)
+      }
     }
     .background(appearance.background.secondary)
+  }
+}
+
+struct CategoriesListItemView: View {
+  
+  var category: Category
+  
+  var body: some View {
+    NavigationLink(destination: ProductListScreen(category: category)) {
+      Text(category.name)
+    }
   }
 }
 
@@ -45,6 +52,7 @@ struct CategoriesListScreenView_Previews: PreviewProvider {
   static var previews: some View {
     CategoriesListScreenView(
       categories: $categories,
-      isLoading: $isLoading)
+      isLoading: $isLoading
+    )
   }
 }

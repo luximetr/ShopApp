@@ -43,10 +43,10 @@ class AppearancesFactory {
           background: .color(red: 93, green: 93, blue: 159),
           title: .white),
         secondary: .init(
-          background: .clear,
+          background: .color(red: 230, green: 230, blue: 230),
           title: .color(red: 93, green: 93, blue: 159))),
       divider: .init(
-        background: .color(red: 170, green: 170, blue: 170)),
+        background: .color(red: 225, green: 225, blue: 225)),
       scrollIndicator: .init(
         style: .black),
       keyboard: .init(

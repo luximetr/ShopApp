@@ -90,6 +90,7 @@ let mockLaptopProducts = [
     price: Decimal(1999))
 ]
 
-let mockProducts = mockSmartphoneProducts
+let mockProducts = mockEarphoneProducts
+let mockProduct = mockProducts[0]
 
 private let productImageURL = URL(string: "https://lh3.googleusercontent.com/proxy/FJ9jk36y5usuhHqQ_L_O3iXRAX6vOUU5XxpUEVXfgCVJ2Xs_8S-m9bPVGAMyn1mATaqkPmKQnNBZKCL9JDJwL7nupJ_Qmbpn95EvZw")
