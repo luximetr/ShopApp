@@ -15,6 +15,7 @@ struct CategoriesListScreen: View {
   @State var isLoading: Bool = false
   @State var dataLoaded: Bool = false
   @State var isCartPresented: Bool = false
+  @EnvironmentObject var cart: Cart
   
   private let categoriesService = CategoriesService()
   
@@ -40,18 +41,24 @@ struct CategoriesListScreen: View {
         isLoading: $isLoading
       )
         .navigationBarTitle("Categories", displayMode: .inline)
-        .navigationBarItems(trailing:
-          Button(action: {
-            self.isCartPresented = true
-          }) {
-            Text("Cart")
-          }
-      )
+        .navigationBarItems(trailing: cartButton)
     }
-    .onAppear(perform: {
-      self.viewOnAppear()
-    }).sheet(isPresented: self.$isCartPresented, content: CartItemsListScreen.init)
-    
+      .onAppear(perform: {
+        self.viewOnAppear()
+      })
+      .sheet(isPresented: self.$isCartPresented) {
+        CartItemsListScreen()
+          .environmentObject(self.cart)
+      }
+      .environmentObject(cart)
+  }
+  
+  private var cartButton: some View {
+    CartVolumeButton(
+      text: "\(cart.items.count)",
+      action: {
+        self.isCartPresented = true
+    })
   }
 }
 

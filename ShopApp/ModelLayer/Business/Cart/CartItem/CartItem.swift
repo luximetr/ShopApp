@@ -7,18 +7,31 @@
 //
 
 import Foundation
+import Combine
 
-struct CartItem {
+let cartItemAmountPublisher = PassthroughSubject<Void, Never>()
+
+class CartItem: ObservableObject {
   let id: CartItemIdType
   let product: Product
-  let amount: Int
+  @Published var amount: Int
+  var cancellable: AnyCancellable?
+  
+  init(product: Product) {
+    self.id = UUID().uuidString
+    self.product = product
+    self.amount = 1
+    cancellable = self.$amount.receive(on: RunLoop.main).sink(receiveValue: { _ in
+      cartItemAmountPublisher.send()
+    })
+  }
 }
 
 typealias CartItemIdType = String
 
 let mockCartItems = [
-  CartItem(id: UUID().uuidString, product: mockProducts[0], amount: 1),
-  CartItem(id: UUID().uuidString, product: mockProducts[1], amount: 2),
-  CartItem(id: UUID().uuidString, product: mockProducts[2], amount: 1)
+  CartItem(product: mockProducts[0]),
+  CartItem(product: mockProducts[1]),
+  CartItem(product: mockProducts[2])
 ]
 let mockCartItem = mockCartItems[0]

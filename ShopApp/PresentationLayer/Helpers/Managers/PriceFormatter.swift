@@ -21,8 +21,8 @@ class PriceFormatter {
     numberFormatter.minimumFractionDigits = 2
   }
   
-  func format(amount: Decimal) -> String {
-    return numberFormatter.string(from: NSDecimalNumber(decimal: amount)) ?? ""
+  func format(amount: Decimal, currency: String = "$") -> String {
+    return currency + (numberFormatter.string(from: NSDecimalNumber(decimal: amount)) ?? "")
   }
   
 }

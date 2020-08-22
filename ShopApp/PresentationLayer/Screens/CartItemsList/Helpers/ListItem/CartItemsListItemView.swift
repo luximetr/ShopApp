@@ -11,8 +11,7 @@ import SDWebImageSwiftUI
 
 struct CartItemsListItemView: View {
   
-  @State var item: CartItem
-  @State var amount: Int = 1
+  @ObservedObject var item: CartItem
   private let priceFormatter = PriceFormatter()
   var onRemove: () -> Void
   
@@ -79,7 +78,7 @@ struct CartItemsListItemView: View {
   }
   
   private var amountStepperView: some View {
-    StepperView(count: self.$amount)
+    StepperView(count: self.$item.amount)
   }
   
   private var dividerView: some View {
@@ -91,12 +90,12 @@ struct CartItemsListItemView: View {
 }
 
 struct CartItemsListItemView_Previews: PreviewProvider {
+  @State static var item = mockCartItem
   static var previews: some View {
     CartItemsListItemView(
-      item: mockCartItem,
+      item: item,
       onRemove: {
         print("Remove item")
     })
-//      .border(Color.blue)
   }
 }

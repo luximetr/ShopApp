@@ -8,6 +8,8 @@
 
 import Foundation
 
+let webAPIDelay: Double = 0
+
 class URLSessionWebAPI {
   
   // MARK: - Dependencies

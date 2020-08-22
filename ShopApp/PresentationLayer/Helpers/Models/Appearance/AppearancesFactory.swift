@@ -40,11 +40,13 @@ class AppearancesFactory {
         shadow: .color(red: 170, green: 170, blue: 170)),
       action: .init(
         primary: .init(
-          background: .color(red: 93, green: 93, blue: 159),
-          title: .white),
+          background: .color(red: 255, green: 204, blue: 139),
+          title: .black,
+          shadow: .color(red: 200, green: 200, blue: 200)),
         secondary: .init(
-          background: .color(red: 230, green: 230, blue: 230),
-          title: .color(red: 93, green: 93, blue: 159))),
+          background: .clear,
+          title: .black,
+          shadow: .clear)),
       divider: .init(
         background: .color(red: 225, green: 225, blue: 225)),
       scrollIndicator: .init(

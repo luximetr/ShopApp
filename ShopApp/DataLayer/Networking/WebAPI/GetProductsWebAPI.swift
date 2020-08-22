@@ -11,7 +11,7 @@ import Foundation
 class GetProductsWebAPI: URLSessionWebAPI {
   
   func getProducts(categoryId: CategoryIdType, completion: @escaping Completion) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+    DispatchQueue.main.asyncAfter(deadline: .now() + webAPIDelay, execute: {
       completion(.success(self.createProducts(categoryId: categoryId)))
     })
   }

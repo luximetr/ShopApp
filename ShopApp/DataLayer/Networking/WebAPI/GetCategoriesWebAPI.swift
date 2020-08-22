@@ -8,10 +8,11 @@
 
 import Foundation
 
+
 class GetCategoriesWebAPI: URLSessionWebAPI {
   
   func getCategories(completion: @escaping Completion) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+    DispatchQueue.main.asyncAfter(deadline: .now() + webAPIDelay, execute: {
       completion(.success(mockCategories))
     })
   }

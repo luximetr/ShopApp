@@ -62,6 +62,7 @@ struct Appearance {
   struct Action {
     let background: Color
     let title: Color
+    let shadow: Color
   }
   
   struct Divider {

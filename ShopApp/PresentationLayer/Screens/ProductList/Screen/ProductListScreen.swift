@@ -11,9 +11,11 @@ import SwiftUI
 struct ProductListScreen: View {
   
   var category: Category
+  @EnvironmentObject private var cart: Cart
   @State var products: [Product] = []
   @State var isLoading: Bool = false
   @State var needLoadOnAppear = true
+  @State var isCartPresented = false
   
   private let productsService = ProductsService()
   
@@ -41,6 +43,20 @@ struct ProductListScreen: View {
     ).onAppear {
       self.viewOnAppear()
     }
+      .navigationBarTitle("Categories", displayMode: .inline)
+      .navigationBarItems(trailing: cartButton)
+      .sheet(isPresented: self.$isCartPresented) {
+        CartItemsListScreen()
+          .environmentObject(self.cart)
+      }
+  }
+  
+  private var cartButton: some View {
+    CartVolumeButton(
+      text: "\(cart.items.count)",
+      action: {
+        self.isCartPresented = true
+    })
   }
 }
 
