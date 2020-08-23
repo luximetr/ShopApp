@@ -57,6 +57,7 @@ struct Appearance {
   struct ActionType {
     let primary: Action
     let secondary: Action
+    let positive: Action
   }
   
   struct Action {

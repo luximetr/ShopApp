@@ -12,16 +12,20 @@ import SDWebImageSwiftUI
 struct ProductDetailsScreenView: View {
   
   var product: Product
+  @Binding var isInCart: Bool
   var onAddToCart: () -> Void
+  var onOpenCart: () -> Void
   
   var body: some View {
     GeometryReader { geo in
-      VStack(alignment: .leading, spacing: 0) {
-        self.productNameView
-        self.productImageView(width: geo.size.width)
-        self.productDepiction
-        Spacer()
-        self.addToCartButton
+      ZStack {
+        VStack(alignment: .leading, spacing: 0) {
+          self.productNameView
+          self.productImageView(width: geo.size.width)
+          self.productDepiction
+          Spacer()
+        }
+        self.actionButtons(width: geo.size.width)
       }
     }
   }
@@ -50,22 +54,59 @@ struct ProductDetailsScreenView: View {
       .padding([.leading, .trailing], 24)
   }
   
-  private var addToCartButton: some View {
+  private func actionButtons(width: CGFloat) -> some View {
     VStack {
-      Button("Add to Cart", action: {
-        self.onAddToCart()
-      })
-      .buttonStyle(PrimaryButtonStyle())
+      Spacer()
+      if self.isInCart {
+        self.goToCartButton
+      } else {
+        self.addToCartButton
+      }
     }
-    .padding(.horizontal, 24)
+    .frame(width: width - 24, alignment: .trailing)
     .padding(.bottom, 24)
+    .padding(.trailing, 24)
+  }
+  
+  private var addToCartButton: some View {
+    Button(action: {
+      self.onAddToCart()
+    }, label: {
+      Image("cart_add")
+        .resizable()
+        .padding(.all, 12)
+    })
+    .frame(width: 50, height: 50)
+    .foregroundColor(appearance.action.primary.title)
+    .background(appearance.action.primary.background)
+    .cornerRadius(25)
+    .shadow(color: appearance.action.primary.shadow, radius: 10, x: 0, y: 10)
+  }
+  
+  private var goToCartButton: some View {
+    Button(action: {
+      self.onOpenCart()
+    }, label: {
+      Image("cart_done")
+        .resizable()
+        .padding(.all, 12)
+    })
+    .frame(width: 50, height: 50)
+    .foregroundColor(appearance.action.positive.title)
+    .background(appearance.action.positive.background)
+    .cornerRadius(25)
+    .shadow(color: appearance.action.positive.shadow, radius: 10, x: 0, y: 10)
   }
 }
 
 struct ProductDetailsScreenView_Previews: PreviewProvider {
+  @State static var isInCart = true
   static var previews: some View {
     ProductDetailsScreenView(
       product: mockProduct,
-      onAddToCart: {})
+      isInCart: $isInCart,
+      onAddToCart: {},
+      onOpenCart: {}
+    )
   }
 }

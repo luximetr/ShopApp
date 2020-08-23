@@ -64,6 +64,10 @@
 		DB74CF7124F1061C00087319 /* MakePaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74CF7024F1061C00087319 /* MakePaymentService.swift */; };
 		DB74CF7324F1076900087319 /* MakePaymentFormConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74CF7224F1076900087319 /* MakePaymentFormConvertor.swift */; };
 		DB74CF7724F1090000087319 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74CF7624F1090000087319 /* String+Extension.swift */; };
+		DB74CF7A24F10C8600087319 /* PaymentSuccessScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74CF7924F10C8600087319 /* PaymentSuccessScreen.swift */; };
+		DB74CF7C24F10D2E00087319 /* ShippingScreenFormConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74CF7B24F10D2E00087319 /* ShippingScreenFormConvertor.swift */; };
+		DB74CF7E24F10DC400087319 /* PaymentSuccessScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74CF7D24F10DC400087319 /* PaymentSuccessScreenView.swift */; };
+		DB74CF8124F16ADE00087319 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74CF8024F16ADE00087319 /* RootScreen.swift */; };
 		DB77AC5524DE7D81005A79C0 /* ProductDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77AC5424DE7D80005A79C0 /* ProductDetailsScreenView.swift */; };
 		DB77AC5E24E56075005A79C0 /* CartItemsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77AC5D24E56075005A79C0 /* CartItemsListScreen.swift */; };
 		DB77AC6024E56815005A79C0 /* CartItemsListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77AC5F24E56815005A79C0 /* CartItemsListScreenView.swift */; };
@@ -139,6 +143,10 @@
 		DB74CF7024F1061C00087319 /* MakePaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentService.swift; sourceTree = "<group>"; };
 		DB74CF7224F1076900087319 /* MakePaymentFormConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentFormConvertor.swift; sourceTree = "<group>"; };
 		DB74CF7624F1090000087319 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		DB74CF7924F10C8600087319 /* PaymentSuccessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessScreen.swift; sourceTree = "<group>"; };
+		DB74CF7B24F10D2E00087319 /* ShippingScreenFormConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingScreenFormConvertor.swift; sourceTree = "<group>"; };
+		DB74CF7D24F10DC400087319 /* PaymentSuccessScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessScreenView.swift; sourceTree = "<group>"; };
+		DB74CF8024F16ADE00087319 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 		DB77AC5424DE7D80005A79C0 /* ProductDetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsScreenView.swift; sourceTree = "<group>"; };
 		DB77AC5A24E3B18A005A79C0 /* ShopApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShopApp.entitlements; sourceTree = "<group>"; };
 		DB77AC5D24E56075005A79C0 /* CartItemsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsListScreen.swift; sourceTree = "<group>"; };
@@ -528,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				DB74CF5A24EEBAFB00087319 /* ShippingScreenForm.swift */,
+				DB74CF7B24F10D2E00087319 /* ShippingScreenFormConvertor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -589,6 +598,23 @@
 				DB74CF7624F1090000087319 /* String+Extension.swift */,
 			);
 			path = Processing;
+			sourceTree = "<group>";
+		};
+		DB74CF7824F10C6900087319 /* PaymentSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				DB74CF7924F10C8600087319 /* PaymentSuccessScreen.swift */,
+				DB74CF7D24F10DC400087319 /* PaymentSuccessScreenView.swift */,
+			);
+			path = PaymentSuccess;
+			sourceTree = "<group>";
+		};
+		DB74CF7F24F16A9A00087319 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				DB74CF8024F16ADE00087319 /* RootScreen.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		DB77AC5924DECB5A005A79C0 /* Cart */ = {
@@ -735,6 +761,8 @@
 		DB86F6E524CC436500B0F609 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DB74CF7F24F16A9A00087319 /* Root */,
+				DB74CF7824F10C6900087319 /* PaymentSuccess */,
 				DB77AC5B24E56055005A79C0 /* CartItemsList */,
 				DB74CF5324EEB8CF00087319 /* Shipping */,
 				DB74CF5E24F0EC9100087319 /* MakePayment */,
@@ -897,6 +925,7 @@
 				DB421EB624D8432E00057B55 /* ProductsService.swift in Sources */,
 				DB16AB3024D0751000B33B2A /* WebAPIResponseErrorFactory.swift in Sources */,
 				DB0ED8D924CD51E5000CFE8B /* FontFamilly.swift in Sources */,
+				DB74CF7C24F10D2E00087319 /* ShippingScreenFormConvertor.swift in Sources */,
 				DB16AB2D24D0751000B33B2A /* WebAPIRequestError.swift in Sources */,
 				DB16AB2C24D0751000B33B2A /* WebAPIFailureConvertor.swift in Sources */,
 				DB86F6EA24CC43D400B0F609 /* ProductListScreenView.swift in Sources */,
@@ -925,6 +954,7 @@
 				DB86F6E824CC43C700B0F609 /* ProductListScreen.swift in Sources */,
 				DB77AC6424E569C8005A79C0 /* CartItem.swift in Sources */,
 				DB0ED8E124CD5837000CFE8B /* StatusBarStyle.swift in Sources */,
+				DB74CF8124F16ADE00087319 /* RootScreen.swift in Sources */,
 				DB74CF5824EEBACC00087319 /* ShippingScreenView.swift in Sources */,
 				DB16AB3224D0751000B33B2A /* WebAPIResponseErrorCode.swift in Sources */,
 				DB0ED8D324CD51B6000CFE8B /* Font+Extension.swift in Sources */,
@@ -936,7 +966,9 @@
 				DB421EB424D83F8500057B55 /* GetProductsWebAPI.swift in Sources */,
 				DB77AC5524DE7D81005A79C0 /* ProductDetailsScreenView.swift in Sources */,
 				DB74CF6724F0ED2D00087319 /* MakePaymentForm.swift in Sources */,
+				DB74CF7E24F10DC400087319 /* PaymentSuccessScreenView.swift in Sources */,
 				DB74CF5D24EECDE500087319 /* View+Extension.swift in Sources */,
+				DB74CF7A24F10C8600087319 /* PaymentSuccessScreen.swift in Sources */,
 				DB16AB2E24D0751000B33B2A /* WebAPIRequestErrorFactory.swift in Sources */,
 				DB74CF6924F104AC00087319 /* MakePaymentWebAPI.swift in Sources */,
 				DB421EB024D83AAB00057B55 /* ActivityIndicator.swift in Sources */,

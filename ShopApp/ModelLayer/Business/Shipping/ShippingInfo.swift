@@ -16,3 +16,11 @@ struct ShippingInfo {
   let country: String
   let shippingMethod: String
 }
+
+let mockShippingInfo = ShippingInfo(
+  fullName: "John Doe",
+  address: "Green str. 12",
+  city: "New-York",
+  zipCode: "21314",
+  country: "United States",
+  shippingMethod: "FedEx delivery")

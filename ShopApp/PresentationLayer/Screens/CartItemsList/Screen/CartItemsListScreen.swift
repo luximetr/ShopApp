@@ -25,7 +25,8 @@ struct CartItemsListScreen: View {
   }
   
   private func onContinueShopping() {
-    
+    updateIsCartPresentedPublisher.send(false)
+//    NotificationCenter.default.post(name: .updateIsCartPresented, object: false)
   }
   
   var body: some View {
@@ -44,13 +45,6 @@ struct CartItemsListScreen: View {
         }
       }
         .navigationBarTitle("Cart", displayMode: .inline)
-        .navigationBarItems(trailing: cancelButton)
-    }
-  }
-  
-  private var cancelButton: some View {
-    Button("Cancel") {
-      
     }
   }
 }

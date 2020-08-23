@@ -40,7 +40,11 @@ class Cart: ObservableObject {
     removeProduct(item.product.id)
   }
   
-  private func getIsProductInCart(_ productId: ProductIdType) -> Bool {
+  func clear() {
+    items.removeAll()
+  }
+  
+  func getIsProductInCart(_ productId: ProductIdType) -> Bool {
     return items.contains(where: { $0.product.id == productId })
   }
 }

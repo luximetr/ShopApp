@@ -13,6 +13,7 @@ struct MakePaymentScreen: View {
   let shippingInfo: ShippingInfo
   @State private var form = MakePaymentScreenForm()
   @EnvironmentObject var cart: Cart
+  @State private var needShowSuccessScreen = false
   
   private let makePaymentService = MakePaymentService()
   private let convertor = MakePaymentFormConvertor()
@@ -25,23 +26,26 @@ struct MakePaymentScreen: View {
       paymentInfo: paymentInfo,
       completion: { result in
         switch result {
-          case .success: print("go to success screen")
+          case .success: self.needShowSuccessScreen = true
           case .failure(let error): print(error.message)
         }
     })
   }
   
   var body: some View {
-    MakePaymentScreenView(
-      form: $form,
-      totalAmount: $cart.totalPrice,
-      onContinue: onContinue
-    )
+    ZStack {
+      MakePaymentScreenView(
+        form: $form,
+        totalAmount: $cart.totalPrice,
+        onContinue: onContinue
+      )
+      NavigationLink(destination: PaymentSuccessScreen(), isActive: $needShowSuccessScreen, label: { EmptyView() })
+    }
   }
 }
 
 struct MakePaymentScreen_Previews: PreviewProvider {
   static var previews: some View {
-    MakePaymentScreen()
+    MakePaymentScreen(shippingInfo: mockShippingInfo)
   }
 }

@@ -13,6 +13,8 @@ struct ShippingScreen: View {
   @State var form = ShippingScreenForm()
   @State var needShowMakePayment = false
   
+  private let convertor = ShippingScreenFormConvertor()
+  
   private func onContinue() {
     needShowMakePayment = true
   }
@@ -24,7 +26,9 @@ struct ShippingScreen: View {
         onContinue: onContinue
       )
       NavigationLink(
-        destination: MakePaymentScreen(),
+        destination:
+          MakePaymentScreen(
+            shippingInfo: convertor.toShippingInfo(form: form)),
         isActive: $needShowMakePayment) { EmptyView() }
     }
   }

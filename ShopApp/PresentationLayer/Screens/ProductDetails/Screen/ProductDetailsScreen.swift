@@ -10,23 +10,31 @@ import SwiftUI
 
 struct ProductDetailsScreen: View {
   
-  @EnvironmentObject var cart: Cart
-  @State private var isCartPresented = false
-  var product: Product
+  @EnvironmentObject private var cart: Cart
+  @State private var isInCart: Bool
+  private let product: Product
+  
+  init(product: Product, isInCart: Bool) {
+    self.product = product
+    _isInCart = State(initialValue: isInCart)
+  }
   
   private func onAddToCart() {
     cart.addProduct(product)
+    isInCart = true
+  }
+  
+  private func onOpenCart() {
+    updateIsCartPresentedPublisher.send(true)
   }
   
   var body: some View {
     ProductDetailsScreenView(
       product: product,
-      onAddToCart: self.onAddToCart
+      isInCart: $isInCart,
+      onAddToCart: self.onAddToCart,
+      onOpenCart: self.onOpenCart
     )
-      .sheet(isPresented: self.$isCartPresented) {
-        CartItemsListScreen()
-          .environmentObject(self.cart)
-      }
       .navigationBarTitle("\(product.name)", displayMode: .inline)
       .navigationBarItems(trailing: cartButton)
   }
@@ -35,7 +43,7 @@ struct ProductDetailsScreen: View {
     CartVolumeButton(
       text: "\(cart.items.count)",
       action: {
-        self.isCartPresented = true
+        updateIsCartPresentedPublisher.send(true)
     })
   }
 }

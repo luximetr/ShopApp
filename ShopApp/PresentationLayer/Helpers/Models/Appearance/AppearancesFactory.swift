@@ -46,7 +46,11 @@ class AppearancesFactory {
         secondary: .init(
           background: .clear,
           title: .black,
-          shadow: .clear)),
+          shadow: .clear),
+        positive: .init(
+          background: .color(red: 113, green: 181, blue: 130),
+          title: .white,
+          shadow: .color(red: 200, green: 200, blue: 200))),
       divider: .init(
         background: .color(red: 225, green: 225, blue: 225)),
       scrollIndicator: .init(

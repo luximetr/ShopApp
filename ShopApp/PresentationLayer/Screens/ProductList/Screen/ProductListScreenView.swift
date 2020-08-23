@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ProductListScreenView: View {
   
+  @EnvironmentObject private var cart: Cart
   @Binding var products: [Product]
   @Binding var isLoading: Bool
   
@@ -39,12 +40,20 @@ struct ProductListScreenView: View {
               .padding([.top, .bottom], 2)
               .listRowBackground(appearance.background.secondary)
           
-          NavigationLink(destination: ProductDetailsScreen(product: product)) {
-            EmptyView()
-          }
+          self.productDetailsNavigationLink(product: product)
           
         }.background(appearance.background.secondary)
       }
+    }
+  }
+  
+  private func productDetailsNavigationLink(product: Product) -> some View {
+    NavigationLink(
+      destination:
+        ProductDetailsScreen(
+          product: product,
+          isInCart: self.cart.getIsProductInCart(product.id))) {
+      EmptyView()
     }
   }
 }
