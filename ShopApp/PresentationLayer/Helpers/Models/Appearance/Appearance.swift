@@ -18,7 +18,7 @@ struct Appearance {
   let navigation: Navigation
   let tabBar: TabBar
   let action: ActionType
-  let divider: Divider
+  let divider: DividerType
   let scrollIndicator: ScrollIndicator
   let keyboard: Keyboard
 
@@ -64,6 +64,11 @@ struct Appearance {
     let background: Color
     let title: Color
     let shadow: Color
+  }
+  
+  struct DividerType {
+    let primary: Divider
+    let disruptive: Divider
   }
   
   struct Divider {

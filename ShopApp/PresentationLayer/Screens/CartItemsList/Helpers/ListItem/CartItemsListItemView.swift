@@ -82,7 +82,7 @@ struct CartItemsListItemView: View {
   }
   
   private var dividerView: some View {
-    appearance.divider.background
+    appearance.divider.primary.background
       .frame(height: 1)
       .padding([.leading, .trailing], 16)
   }

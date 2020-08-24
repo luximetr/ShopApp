@@ -14,7 +14,7 @@ struct ShippingScreenView: View {
   var onContinue: () -> Void
   
   var body: some View {
-    VStack(spacing: 25) {
+    VStack(spacing: 10) {
       fullNameInputView
       addressInputView
       HStack {
@@ -36,28 +36,28 @@ struct ShippingScreenView: View {
   }
   
   private var fullNameInputView: some View {
-    TextField("Full Name", text: $form.fullName)
+    UnderlineTextInput("Full Name", text: $form.fullName, errorText: $form.fullNameError)
   }
   
   private var addressInputView: some View {
-    TextField("Address", text: $form.address)
+    UnderlineTextInput("Address", text: $form.address, errorText: $form.addressError)
   }
   
   private var cityInputView: some View {
-    TextField("City", text: $form.city)
+    UnderlineTextInput("City", text: $form.city, errorText: $form.cityError)
   }
   
   private var zipCodeInputView: some View {
-    TextField("Zip Code", text: $form.zipCode)
+    UnderlineTextInput("Zip Code", text: $form.zipCode, errorText: $form.zipCodeError)
       .padding(.leading, 10)
   }
   
   private var countryInputView: some View {
-    TextField("Country", text: $form.country)
+    UnderlineTextInput("Country", text: $form.country, errorText: $form.countryError)
   }
   
   private var shippingMethodInputView: some View {
-    TextField("Shipping Method", text: $form.shippingMethod)
+    UnderlineTextInput("Shipping Method", text: $form.shippingMethod, errorText: $form.shippingMethodError)
   }
   
   private var continueButton: some View {

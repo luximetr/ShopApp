@@ -52,7 +52,10 @@ class AppearancesFactory {
           title: .white,
           shadow: .color(red: 200, green: 200, blue: 200))),
       divider: .init(
-        background: .color(red: 225, green: 225, blue: 225)),
+        primary: .init(
+          background: .color(red: 225, green: 225, blue: 225)),
+        disruptive: .init(
+          background: .red)),
       scrollIndicator: .init(
         style: .black),
       keyboard: .init(

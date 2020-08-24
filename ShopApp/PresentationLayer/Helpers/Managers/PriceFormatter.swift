@@ -10,7 +10,7 @@ import Foundation
 
 class PriceFormatter {
   
-  private let numberFormatter: NumberFormatter
+  let numberFormatter: NumberFormatter
   
   init() {
     numberFormatter = NumberFormatter()

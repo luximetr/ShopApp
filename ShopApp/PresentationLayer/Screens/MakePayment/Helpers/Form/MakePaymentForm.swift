@@ -10,7 +10,10 @@ import Foundation
 
 struct MakePaymentScreenForm {
   var cardNumber: String = ""
-  var expiredMonth: String = ""
-  var expiredYear: String = ""
+  var cartNumberError: String = ""
+  var expired: String = ""
+  var expiredError: String = ""
   var cvv: String = ""
+  var cvvError: String = ""
+  var cvvNumber: NSNumber = 0
 }

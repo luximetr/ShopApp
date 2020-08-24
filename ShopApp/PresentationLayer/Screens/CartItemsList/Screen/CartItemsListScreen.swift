@@ -26,7 +26,6 @@ struct CartItemsListScreen: View {
   
   private func onContinueShopping() {
     updateIsCartPresentedPublisher.send(false)
-//    NotificationCenter.default.post(name: .updateIsCartPresented, object: false)
   }
   
   var body: some View {

@@ -21,7 +21,9 @@ struct CartItemsListScreenView: View {
     VStack {
       list
       totalAmountView
-      checkOutButton
+      if !cart.items.isEmpty {
+        checkOutButton
+      }
       continueButton
     }
     .background(appearance.background.secondary)
@@ -43,21 +45,24 @@ struct CartItemsListScreenView: View {
   
   var totalAmountView: some View {
     HStack {
-      Text("Total amount")
+      Text("Total Amount")
+        .font(.font(ofSize: 15, weight: .semiBold))
+        .foregroundColor(appearance.text.secondary)
       Spacer()
-      Text("$\(priceFormatter.format(amount: cart.totalPrice))")
+      Text(priceFormatter.format(amount: cart.totalPrice))
+        .font(.font(ofSize: 20, weight: .bold))
+        .foregroundColor(appearance.text.primary)
     }
     .padding(.horizontal, 24)
     .padding(.vertical, 16)
   }
   
   var checkOutButton: some View {
-    Button(action: {
+    Button("Check out") {
       self.onCheckOut()
-    }) {
-      Text("Check out")
     }
     .buttonStyle(PrimaryButtonStyle())
+    .disabled(cart.items.isEmpty)
     .padding(.horizontal, 24)
   }
   
@@ -74,12 +79,14 @@ struct CartItemsListScreenView: View {
   
 }
 
-//struct CartItemsListScreenView_Previews: PreviewProvider {
-//  @State static var items = mockCartItems
-//  static var previews: some View {
-//    CartItemsListScreenView(
-//      items: $items,
-//      onRemoveItem: { item in print(item) }
-//    )
-//  }
-//}
+struct CartItemsListScreenView_Previews: PreviewProvider {
+  @State static var items = mockCartItems
+  static var previews: some View {
+    CartItemsListScreenView(
+      cart: mockCart,
+      onRemoveItem: { item in print(item) },
+      onCheckOut: {},
+      onContinueShopping: {}
+    )
+  }
+}

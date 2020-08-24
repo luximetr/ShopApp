@@ -23,10 +23,11 @@ struct PrimaryButtonStyle: ButtonStyle {
 }
 
 struct PrimaryButtonStyle_Previews: PreviewProvider {
-    static var previews: some View {
-      Button("Button") {
-        
-      }
-      .buttonStyle(PrimaryButtonStyle())
+  
+  static var previews: some View {
+    Button("Button") {
+      
     }
+    .buttonStyle(PrimaryButtonStyle())
+  }
 }

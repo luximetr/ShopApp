@@ -12,7 +12,7 @@ import Combine
 struct RootScreen: View {
   
   @State var isCartPresented: Bool = false
-  @ObservedObject var cart = Cart()
+  @ObservedObject var cart = mockCart// Cart()
   
   var body: some View {
     CategoriesListScreen()
@@ -21,17 +21,15 @@ struct RootScreen: View {
         CartItemsListScreen()
           .environmentObject(self.cart)
       }
-      .onReceive(updateIsCartPresentedPublisher, perform: { needPresent in
-        self.isCartPresented = needPresent
+      .onReceive(
+        updateIsCartPresentedPublisher.receive(on: DispatchQueue.main),
+        perform: { needPresent in
+          self.isCartPresented = needPresent
       })
   }
 }
 
-//extension Notification.Name {
-//  static let updateIsCartPresented = Notification.Name(rawValue: "updateIsCartPresented")
-//}
 let updateIsCartPresentedPublisher = PassthroughSubject<Bool, Never>()
-//private let updateIsCartPresentedPublisher = NotificationCenter.Publisher(center: .default, name: .updateIsCartPresented)
 
 struct RootScreen_Previews: PreviewProvider {
   static var previews: some View {
