@@ -13,29 +13,30 @@ struct UnderlineTextInput: View {
   @Binding var text: String
   @Binding var errorText: String
   var placeholder: String = ""
-  private var formatter: Formatter?
+  private var onCommit: () -> Void
   
   init(_ placeholder: String = "",
        text: Binding<String>,
        errorText: Binding<String>,
-       formatter: Formatter? = nil) {
+       onCommit: @escaping () -> Void = {}) {
     self.placeholder = placeholder
     self._text = text
     self._errorText = errorText
-    self.formatter = formatter
+    self.onCommit = onCommit
   }
   
   var body: some View {
     VStack(alignment: .leading, spacing: 0) {
-      if formatter != nil {
-        TextField(placeholder, value: $text, formatter: formatter!, onEditingChanged: { _ in
+      TextField(
+        placeholder,
+        text: $text,
+        onEditingChanged: { _ in
           self.errorText = ""
-        }, onCommit: {})
-      } else {
-        TextField(placeholder, text: $text, onEditingChanged: { _ in
-          self.errorText = ""
-        })
+        },
+        onCommit: {
+          self.onCommit()
       }
+      )
       Divider()
         .frame(height: 1)
         .background(dividerColor)

@@ -50,6 +50,7 @@ struct ShippingScreenView: View {
   private var zipCodeInputView: some View {
     UnderlineTextInput("Zip Code", text: $form.zipCode, errorText: $form.zipCodeError)
       .padding(.leading, 10)
+      .keyboardType(.numberPad)
   }
   
   private var countryInputView: some View {
@@ -57,7 +58,12 @@ struct ShippingScreenView: View {
   }
   
   private var shippingMethodInputView: some View {
-    UnderlineTextInput("Shipping Method", text: $form.shippingMethod, errorText: $form.shippingMethodError)
+    UnderlineTextInput(
+      "Shipping Method",
+      text: $form.shippingMethod,
+      errorText: $form.shippingMethodError,
+      onCommit: onContinue
+    )
   }
   
   private var continueButton: some View {
