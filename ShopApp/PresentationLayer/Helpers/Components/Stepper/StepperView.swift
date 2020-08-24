@@ -11,6 +11,7 @@ import SwiftUI
 struct StepperView: View {
   
   @Binding var count: Int
+  var minValue = 1
   private let step = 1
   
   var body: some View {
@@ -29,7 +30,7 @@ struct StepperView: View {
   }
   
   private var decreaseButton: some View {
-    createButton("-") {
+    createButton("-", disabled: count <= minValue) {
       self.count -= self.step
     }
   }
@@ -40,7 +41,7 @@ struct StepperView: View {
     }
   }
   
-  private func createButton(_ text: String, _ action: @escaping () -> Void) -> some View {
+  private func createButton(_ text: String, disabled: Bool = false, _ action: @escaping () -> Void) -> some View {
     Button(action: {
       action()
     }) {
@@ -48,12 +49,13 @@ struct StepperView: View {
         .offset(y: -2)
         .font(.font(ofSize: 26, weight: .medium))
         .frame(width: 30, height: 30)
-        .foregroundColor(appearance.action.secondary.title)
+        .foregroundColor(disabled ? appearance.text.secondary : appearance.text.primary)
         .overlay(
           RoundedRectangle(cornerRadius: 15)
             .stroke(appearance.action.secondary.background, lineWidth: 2)
         )
     }
+    .disabled(disabled)
     .buttonStyle(BorderlessButtonStyle())
   }
   
