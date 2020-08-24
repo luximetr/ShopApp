@@ -19,10 +19,13 @@ struct MakePaymentScreenView: View {
     VStack(alignment: .leading, spacing: 10) {
       UnderlineTextInput("XXXX XXXX XXXX XXXX", text: $form.cardNumber, errorText: $form.cartNumberError)
         .frame(width: 192)
+        .keyboardType(.asciiCapableNumberPad)
       UnderlineTextInput("MM/YY", text: $form.expired, errorText: $form.expiredError)
         .frame(width: 56)
+        .keyboardType(.numbersAndPunctuation)
       UnderlineTextInput("CVV", text: $form.cvv, errorText: $form.cvvError)
-        .frame(width: 34)
+        .frame(width: 56)
+        .keyboardType(.asciiCapableNumberPad)
       Spacer()
       totalAmountView
       continueButton
