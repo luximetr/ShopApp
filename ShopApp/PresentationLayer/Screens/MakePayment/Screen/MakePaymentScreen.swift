@@ -26,7 +26,7 @@ struct MakePaymentScreen: View {
   
   private func validateForm() -> Bool {
     var isValid = true
-    let canNotBeEmptyError = "Can not be empty"
+    let canNotBeEmptyError = "Required"
     if form.cardNumber.isEmpty {
       form.cartNumberError = canNotBeEmptyError
       isValid = false

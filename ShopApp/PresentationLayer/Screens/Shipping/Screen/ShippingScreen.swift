@@ -22,7 +22,7 @@ struct ShippingScreen: View {
   
   private func validateForm() -> Bool {
     var isValid = true
-    let canNotBeEmptyError = "Can not be empty"
+    let canNotBeEmptyError = "Required"
     if form.fullName.isEmpty {
       form.fullNameError = canNotBeEmptyError
       isValid = false

@@ -7,44 +7,6 @@
 //
 
 import SwiftUI
-import Combine
-
-struct NumberTextField: View {
-  init(_ title: String, value: Binding<NSNumber>, formatter: NumberFormatter) {
-    self.title = title
-    self.stringTransformer = StringTransformer(value, formatter: formatter)
-  }
-  
-  private let title: String
-  @ObservedObject private var stringTransformer: StringTransformer
-  
-  var body: some View {
-    TextField(title, text: $stringTransformer.stringValue)
-  }
-}
-
-final class StringTransformer: ObservableObject {
-  
-  @Published var stringValue: String = ""
-  private var cancellable: AnyCancellable?
-  
-  init(_ value: Binding<NSNumber>, formatter: NumberFormatter) {
-    // NSNumber -> String
-    stringValue = formatter.string(from: value.wrappedValue) ?? ""
-    
-    // String -> NSNumber
-    cancellable = $stringValue.dropFirst().receive(on: RunLoop.main)
-      .sink(receiveValue: { [weak self] (editingString) in
-        if let number = formatter.number(from: editingString) {
-          value.wrappedValue = number
-        }
-        else if !editingString.isEmpty {
-          // Force current model value when editing value is invalid (invalid value or out of range).
-          self?.stringValue = formatter.string(from: value.wrappedValue) ?? ""
-        }
-      })
-  }
-}
 
 struct MakePaymentScreenView: View {
   
@@ -59,8 +21,8 @@ struct MakePaymentScreenView: View {
         .frame(width: 192)
       UnderlineTextInput("MM/YY", text: $form.expired, errorText: $form.expiredError)
         .frame(width: 56)
-      NumberTextField("CVV", value: $form.cvvNumber, formatter: PriceFormatter().numberFormatter)
-        .frame(width: 234)
+      UnderlineTextInput("CVV", text: $form.cvv, errorText: $form.cvvError)
+        .frame(width: 34)
       Spacer()
       totalAmountView
       continueButton
