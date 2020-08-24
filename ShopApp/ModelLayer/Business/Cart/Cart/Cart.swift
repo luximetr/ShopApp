@@ -13,17 +13,24 @@ class Cart: ObservableObject {
   @Published var items: [CartItem]
   @Published var totalPrice: Decimal
   
-  private var cancellable: AnyCancellable?
+  private var itemAcountCancellable: AnyCancellable?
+  private var itemsCancellable: AnyCancellable?
   
   init(items: [CartItem] = []) {
     self.items = items
     self.totalPrice = 0
-    cancellable = cartItemAmountPublisher.sink(receiveValue: { [weak self] in
-      guard let self = self else { return }
-      self.totalPrice = self.items.reduce(0) { (result, item) -> Decimal in
-        return result + item.product.price * Decimal(item.amount)
-      }
+    itemAcountCancellable = cartItemAmountPublisher.sink(receiveValue: { [weak self] in
+      self?.updateTotalPrice(items: self?.items ?? [])
     })
+    itemsCancellable = $items.sink(receiveValue: { [weak self] receivedItems in
+      self?.updateTotalPrice(items: receivedItems)
+    })
+  }
+  
+  private func updateTotalPrice(items: [CartItem]) {
+    self.totalPrice = items.reduce(0) { (result, item) -> Decimal in
+      return result + item.product.price * Decimal(item.amount)
+    }
   }
   
   func addProduct(_ product: Product) {
