@@ -19,6 +19,10 @@ class Cart: ObservableObject {
   init(items: [CartItem] = []) {
     self.items = items
     self.totalPrice = 0
+    setupListeners()
+  }
+  
+  private func setupListeners() {
     itemAcountCancellable = cartItemAmountPublisher.sink(receiveValue: { [weak self] in
       self?.updateTotalPrice(items: self?.items ?? [])
     })
