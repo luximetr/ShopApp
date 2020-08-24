@@ -73,6 +73,7 @@ struct CartItemsListItemView: View {
     Button("Remove") {
       self.onRemove()
     }
+    .font(.font(ofSize: 14))
     .accentColor(appearance.text.secondary)
     .buttonStyle(BorderlessButtonStyle())
   }
