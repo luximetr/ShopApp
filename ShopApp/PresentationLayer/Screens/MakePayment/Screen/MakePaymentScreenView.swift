@@ -26,7 +26,7 @@ struct MakePaymentScreenView: View {
       UnderlineTextInput("CVV", text: $form.cvv, errorText: $form.cvvError)
         .frame(width: 56)
         .keyboardType(.asciiCapableNumberPad)
-      Spacer()
+      appearance.background.primary
       totalAmountView
       continueButton
     }

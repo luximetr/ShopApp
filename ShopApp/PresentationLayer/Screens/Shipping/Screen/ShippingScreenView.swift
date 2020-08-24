@@ -23,7 +23,7 @@ struct ShippingScreenView: View {
       }
       countryInputView
       shippingMethodInputView
-      Spacer()
+      appearance.background.primary
       continueButton
     }
     .onTapGesture {
