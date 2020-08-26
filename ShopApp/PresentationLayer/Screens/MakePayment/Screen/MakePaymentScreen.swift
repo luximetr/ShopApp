@@ -11,12 +11,15 @@ import SwiftUI
 struct MakePaymentScreen: View {
   
   let shippingInfo: ShippingInfo
-  @State private var form = MakePaymentScreenForm()
+  @ObservedObject private var form = MakePaymentScreenForm()
   @EnvironmentObject var cart: Cart
   @State private var needShowSuccessScreen = false
   
   private let makePaymentService = MakePaymentService()
   private let convertor = MakePaymentFormConvertor()
+  private let cardNumberValidator = CardNumberValidator()
+  private let expiredValidator = CardExpiredValidator()
+  private let cvvValidator = CardCVVValidator()
   
   private func onContinue() {
     guard validateForm() else { return }
@@ -26,18 +29,23 @@ struct MakePaymentScreen: View {
   
   private func validateForm() -> Bool {
     var isValid = true
-    let canNotBeEmptyError = "Required"
-    if form.cardNumber.isEmpty {
-      form.cartNumberError = canNotBeEmptyError
-      isValid = false
+    switch cardNumberValidator.validate(form.cardNumber) {
+      case .success: break
+      case .failure(let error):
+        form.cardNumberError = error.message
+        isValid = false
     }
-    if form.expired.isEmpty {
-      form.expiredError = canNotBeEmptyError
-      isValid = false
+    switch expiredValidator.validate(form.expired) {
+      case .success: break
+      case .failure(let error):
+        form.expiredError = error.message
+        isValid = false
     }
-    if form.cvv.isEmpty {
-      form.cvvError = canNotBeEmptyError
-      isValid = false
+    switch cvvValidator.validate(form.cvv) {
+      case .success: break
+      case .failure(let error):
+        form.cvvError = error.message
+        isValid = false
     }
     return isValid
   }
@@ -58,7 +66,7 @@ struct MakePaymentScreen: View {
   var body: some View {
     ZStack {
       MakePaymentScreenView(
-        form: $form,
+        form: form,
         totalAmount: $cart.totalPrice,
         onContinue: onContinue
       )

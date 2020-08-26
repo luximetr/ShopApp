@@ -7,13 +7,30 @@
 //
 
 import Foundation
+import Combine
 
-struct MakePaymentScreenForm {
-  var cardNumber: String = ""
-  var cartNumberError: String = ""
-  var expired: String = ""
-  var expiredError: String = ""
-  var cvv: String = ""
-  var cvvError: String = ""
-  var cvvNumber: NSNumber = 0
+class MakePaymentScreenForm: ObservableObject {
+  @Published var cardNumber: String = ""
+  @Published var expired: String = ""
+  @Published var cvv: String = ""
+  
+  @Published var cardNumberError: String = ""
+  @Published var expiredError: String = ""
+  @Published var cvvError: String = ""
+  
+  private var cardNumberCancellable: AnyCancellable?
+  private var expiredCancellable: AnyCancellable?
+  private var cvvCancellable: AnyCancellable?
+  
+  init() {
+    cardNumberCancellable = $cardNumber.sink(receiveValue: { [weak self] _ in
+      self?.cardNumberError.removeAll()
+    })
+    expiredCancellable = $expired.sink(receiveValue: { [weak self] _ in
+      self?.expiredError.removeAll()
+    })
+    cvvCancellable = $cvv.sink(receiveValue: { [weak self] _ in
+      self?.cvvError.removeAll()
+    })
+  }
 }

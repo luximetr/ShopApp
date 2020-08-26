@@ -30,9 +30,6 @@ struct UnderlineTextInput: View {
       TextField(
         placeholder,
         text: $text,
-        onEditingChanged: { _ in
-          self.errorText = ""
-        },
         onCommit: {
           self.onCommit()
       }

@@ -10,21 +10,18 @@ import SwiftUI
 
 struct MakePaymentScreenView: View {
   
-  @Binding var form: MakePaymentScreenForm
+  @ObservedObject var form: MakePaymentScreenForm
   @Binding var totalAmount: Decimal
   private let priceFormatter = PriceFormatter()
   var onContinue: () -> Void
   
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
-      UnderlineTextInput("XXXX XXXX XXXX XXXX", text: $form.cardNumber, errorText: $form.cartNumberError)
-        .frame(width: 192)
+      UnderlineTextInput("XXXX XXXX XXXX XXXX", text: $form.cardNumber, errorText: $form.cardNumberError)
         .keyboardType(.asciiCapableNumberPad)
       UnderlineTextInput("MM/YY", text: $form.expired, errorText: $form.expiredError)
-        .frame(width: 56)
         .keyboardType(.numbersAndPunctuation)
       UnderlineTextInput("CVV", text: $form.cvv, errorText: $form.cvvError)
-        .frame(width: 56)
         .keyboardType(.asciiCapableNumberPad)
       appearance.background.primary
       totalAmountView
@@ -64,7 +61,7 @@ struct MakePaymentScreenView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       MakePaymentScreenView(
-        form: $form,
+        form: form,
         totalAmount: $totalAmount,
         onContinue: {}
       )

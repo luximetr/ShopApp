@@ -10,6 +10,8 @@ import Foundation
 
 class MakePaymentFormConvertor {
   
+  private let cardExpiredConvertor = CardExpiredConvertor()
+  
   func toPaymentInfo(form: MakePaymentScreenForm) -> PaymentInfo? {
     let cardNumber = normaliseCardNumber(form.cardNumber)
     guard let (expiredMonth, expiredYear) = parseExpired(form.expired) else { return nil }
@@ -22,20 +24,14 @@ class MakePaymentFormConvertor {
   }
   
   private func normaliseCardNumber(_ cardNumber: String) -> String {
-    return cardNumber.filter(includedIn: .alphanumerics)
+    return cardNumber.filter(includedIn: .decimalDigits)
   }
   
   private func normaliseCVV(_ cvv: String) -> String {
-    return cvv.filter(includedIn: .alphanumerics)
+    return cvv.filter(includedIn: .decimalDigits)
   }
   
   private func parseExpired(_ expired: String) -> (month: Int, year: Int)? {
-    let divider: Character = "/"
-    guard expired.contains(divider) else { return nil }
-    let components = expired.split(separator: divider)
-    guard components.count == 2 else { return nil }
-    guard let month = Int(components[0]) else { return nil }
-    guard let year = Int(components[1]) else { return nil }
-    return (month, year)
+    return cardExpiredConvertor.toExpired(expired)
   }
 }

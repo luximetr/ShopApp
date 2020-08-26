@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB03B93B24F6940C002C4E35 /* CardNumberValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B93A24F6940C002C4E35 /* CardNumberValidator.swift */; };
+		DB03B93E24F695AA002C4E35 /* ValidatorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B93D24F695AA002C4E35 /* ValidatorResult.swift */; };
+		DB03B94124F695E7002C4E35 /* ValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94024F695E7002C4E35 /* ValidatorError.swift */; };
+		DB03B94324F69672002C4E35 /* CardExpiredValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94224F69672002C4E35 /* CardExpiredValidator.swift */; };
+		DB03B94524F697EF002C4E35 /* CardExpiredConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94424F697EF002C4E35 /* CardExpiredConvertor.swift */; };
+		DB03B94924F69AEB002C4E35 /* CardCVVValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94824F69AEB002C4E35 /* CardCVVValidator.swift */; };
 		DB0ED8D324CD51B6000CFE8B /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0ED8D224CD51B6000CFE8B /* Font+Extension.swift */; };
 		DB0ED8D924CD51E5000CFE8B /* FontFamilly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0ED8D824CD51E5000CFE8B /* FontFamilly.swift */; };
 		DB0ED8DB24CD51F4000CFE8B /* FontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0ED8DA24CD51F4000CFE8B /* FontWeight.swift */; };
@@ -87,6 +93,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB03B93A24F6940C002C4E35 /* CardNumberValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumberValidator.swift; sourceTree = "<group>"; };
+		DB03B93D24F695AA002C4E35 /* ValidatorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorResult.swift; sourceTree = "<group>"; };
+		DB03B94024F695E7002C4E35 /* ValidatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorError.swift; sourceTree = "<group>"; };
+		DB03B94224F69672002C4E35 /* CardExpiredValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpiredValidator.swift; sourceTree = "<group>"; };
+		DB03B94424F697EF002C4E35 /* CardExpiredConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpiredConvertor.swift; sourceTree = "<group>"; };
+		DB03B94824F69AEB002C4E35 /* CardCVVValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCVVValidator.swift; sourceTree = "<group>"; };
 		DB0ED8D224CD51B6000CFE8B /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		DB0ED8D824CD51E5000CFE8B /* FontFamilly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilly.swift; sourceTree = "<group>"; };
 		DB0ED8DA24CD51F4000CFE8B /* FontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeight.swift; sourceTree = "<group>"; };
@@ -180,6 +192,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB03B93924F693F6002C4E35 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				DB03B93A24F6940C002C4E35 /* CardNumberValidator.swift */,
+				DB03B94224F69672002C4E35 /* CardExpiredValidator.swift */,
+				DB03B94824F69AEB002C4E35 /* CardCVVValidator.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		DB03B93C24F69599002C4E35 /* ValidatorResult */ = {
+			isa = PBXGroup;
+			children = (
+				DB03B93D24F695AA002C4E35 /* ValidatorResult.swift */,
+			);
+			path = ValidatorResult;
+			sourceTree = "<group>";
+		};
+		DB03B93F24F695D2002C4E35 /* ValidatorError */ = {
+			isa = PBXGroup;
+			children = (
+				DB03B94024F695E7002C4E35 /* ValidatorError.swift */,
+			);
+			path = ValidatorError;
+			sourceTree = "<group>";
+		};
 		DB0ED8CE24CD4FCF000CFE8B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +359,7 @@
 		DB16AB0A24D074FE00B33B2A /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				DB03B93C24F69599002C4E35 /* ValidatorResult */,
 				DB16AB0B24D074FE00B33B2A /* ServiceResult */,
 				DB16AB0E24D074FE00B33B2A /* WebAPIResult */,
 				DB16AB1024D074FE00B33B2A /* CacheResult */,
@@ -364,6 +403,7 @@
 		DB16AB1924D0751000B33B2A /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				DB03B93F24F695D2002C4E35 /* ValidatorError */,
 				DB16AB1A24D0751000B33B2A /* WebAPIFailure */,
 				DB16AB2624D0751000B33B2A /* ServiceError */,
 				DB16AB2924D0751000B33B2A /* CacheError */,
@@ -564,6 +604,7 @@
 		DB74CF6024F0ECAB00087319 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DB03B93924F693F6002C4E35 /* Validators */,
 				DB74CF6524F0ED0300087319 /* Form */,
 			);
 			path = Helpers;
@@ -574,6 +615,7 @@
 			children = (
 				DB74CF6624F0ED2D00087319 /* MakePaymentForm.swift */,
 				DB74CF7224F1076900087319 /* MakePaymentFormConvertor.swift */,
+				DB03B94424F697EF002C4E35 /* CardExpiredConvertor.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -925,16 +967,20 @@
 				DB0ED8E824CD5B92000CFE8B /* Color+Extension.swift in Sources */,
 				DB421EAA24D834B800057B55 /* AppDelegate.swift in Sources */,
 				DB16AAFF24CF182200B33B2A /* ScrollTextSegmentedView.swift in Sources */,
+				DB03B94124F695E7002C4E35 /* ValidatorError.swift in Sources */,
 				DB16AB3A24D075BC00B33B2A /* URLRequestComposer.swift in Sources */,
+				DB03B94324F69672002C4E35 /* CardExpiredValidator.swift in Sources */,
 				DB74CF7724F1090000087319 /* String+Extension.swift in Sources */,
 				DB16AB3324D0751000B33B2A /* ServiceError.swift in Sources */,
 				DB77AC5E24E56075005A79C0 /* CartItemsListScreen.swift in Sources */,
 				DB77AC6E24E5925E005A79C0 /* StepperView.swift in Sources */,
+				DB03B94524F697EF002C4E35 /* CardExpiredConvertor.swift in Sources */,
 				DB0ED8F624CDDA2C000CFE8B /* CategoriesListScreen.swift in Sources */,
 				DB16AB1524D074FE00B33B2A /* CacheResult.swift in Sources */,
 				DB74CF8824F26F6B00087319 /* UnderlineTextInput.swift in Sources */,
 				DB0ED8EB24CDC80C000CFE8B /* Product.swift in Sources */,
 				DB421EB624D8432E00057B55 /* ProductsService.swift in Sources */,
+				DB03B93E24F695AA002C4E35 /* ValidatorResult.swift in Sources */,
 				DB16AB3024D0751000B33B2A /* WebAPIResponseErrorFactory.swift in Sources */,
 				DB0ED8D924CD51E5000CFE8B /* FontFamilly.swift in Sources */,
 				DB74CF7C24F10D2E00087319 /* ShippingScreenFormConvertor.swift in Sources */,
@@ -955,12 +1001,14 @@
 				DB67F21A24E900F50003C0AD /* SecondaryButtonStyle.swift in Sources */,
 				DB16AB2F24D0751000B33B2A /* WebAPIResponseError.swift in Sources */,
 				DB421EB224D83BD100057B55 /* CategoriesListScreenView.swift in Sources */,
+				DB03B94924F69AEB002C4E35 /* CardCVVValidator.swift in Sources */,
 				DB421EAD24D836B000057B55 /* CategoriesService.swift in Sources */,
 				DB16AB0224CFC28E00B33B2A /* Category.swift in Sources */,
 				DB74CF6F24F1054E00087319 /* PaymentInfo.swift in Sources */,
 				DB0ED8E324CD5AEF000CFE8B /* AppearancesFactory.swift in Sources */,
 				DB0ED8E624CD5B40000CFE8B /* AppearanceType.swift in Sources */,
 				DB0ED8DE24CD5807000CFE8B /* Appearance.swift in Sources */,
+				DB03B93B24F6940C002C4E35 /* CardNumberValidator.swift in Sources */,
 				DB74CF7324F1076900087319 /* MakePaymentFormConvertor.swift in Sources */,
 				DB67F21D24E909320003C0AD /* Cart.swift in Sources */,
 				DB86F6E824CC43C700B0F609 /* ProductListScreen.swift in Sources */,
