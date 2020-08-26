@@ -30,19 +30,20 @@ struct ProductListScreenView: View {
   private var productList: some View {
     List {
       ForEach(products, id: \.id) { product in
-        VStack(spacing: 0) {
-          
+        NavigationLink(
+          destination:
+            ProductDetailsScreen(
+              product: product,
+              isInCart: self.cart.getIsProductInCart(product.id))) {
           ProductListItemView(
             imageURL: product.imageURL,
             title: product.name,
             subtitle: product.depiction,
-            price: "$\(product.price)")
-              .padding([.top, .bottom], 2)
-              .listRowBackground(appearance.background.secondary)
-          
-          self.productDetailsNavigationLink(product: product)
-          
-        }.background(appearance.background.secondary)
+            price: "$\(product.price)"
+          )
+        }
+        .listRowInsets(EdgeInsets(top: 15, leading: 24, bottom: 0, trailing: 24))
+        .listRowBackground(appearance.background.secondary)
       }
     }
   }

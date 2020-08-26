@@ -28,23 +28,12 @@ struct CategoriesListScreenView: View {
     List {
       ForEach(categories, id: \.id) { category in
         CategoriesListItemView(category: category)
+          .listRowBackground(appearance.background.secondary)
       }
     }
     .background(appearance.background.secondary)
   }
 }
-
-struct CategoriesListItemView: View {
-  
-  var category: Category
-  
-  var body: some View {
-    NavigationLink(destination: ProductListScreen(category: category)) {
-      Text(category.name)
-    }
-  }
-}
-
 
 struct CategoriesListScreenView_Previews: PreviewProvider {
   @State static var categories = mockCategories

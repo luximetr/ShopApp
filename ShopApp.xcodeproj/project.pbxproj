@@ -13,6 +13,7 @@
 		DB03B94324F69672002C4E35 /* CardExpiredValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94224F69672002C4E35 /* CardExpiredValidator.swift */; };
 		DB03B94524F697EF002C4E35 /* CardExpiredConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94424F697EF002C4E35 /* CardExpiredConvertor.swift */; };
 		DB03B94924F69AEB002C4E35 /* CardCVVValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94824F69AEB002C4E35 /* CardCVVValidator.swift */; };
+		DB03B94D24F6B749002C4E35 /* CategoriesListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94C24F6B749002C4E35 /* CategoriesListItemView.swift */; };
 		DB0ED8D324CD51B6000CFE8B /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0ED8D224CD51B6000CFE8B /* Font+Extension.swift */; };
 		DB0ED8D924CD51E5000CFE8B /* FontFamilly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0ED8D824CD51E5000CFE8B /* FontFamilly.swift */; };
 		DB0ED8DB24CD51F4000CFE8B /* FontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0ED8DA24CD51F4000CFE8B /* FontWeight.swift */; };
@@ -99,6 +100,7 @@
 		DB03B94224F69672002C4E35 /* CardExpiredValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpiredValidator.swift; sourceTree = "<group>"; };
 		DB03B94424F697EF002C4E35 /* CardExpiredConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpiredConvertor.swift; sourceTree = "<group>"; };
 		DB03B94824F69AEB002C4E35 /* CardCVVValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCVVValidator.swift; sourceTree = "<group>"; };
+		DB03B94C24F6B749002C4E35 /* CategoriesListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListItemView.swift; sourceTree = "<group>"; };
 		DB0ED8D224CD51B6000CFE8B /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		DB0ED8D824CD51E5000CFE8B /* FontFamilly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilly.swift; sourceTree = "<group>"; };
 		DB0ED8DA24CD51F4000CFE8B /* FontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeight.swift; sourceTree = "<group>"; };
@@ -218,6 +220,22 @@
 			path = ValidatorError;
 			sourceTree = "<group>";
 		};
+		DB03B94A24F6B735002C4E35 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DB03B94B24F6B73F002C4E35 /* ListItem */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DB03B94B24F6B73F002C4E35 /* ListItem */ = {
+			isa = PBXGroup;
+			children = (
+				DB03B94C24F6B749002C4E35 /* CategoriesListItemView.swift */,
+			);
+			path = ListItem;
+			sourceTree = "<group>";
+		};
 		DB0ED8CE24CD4FCF000CFE8B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				DB0ED8F424CDDA17000CFE8B /* Screen */,
+				DB03B94A24F6B735002C4E35 /* Helpers */,
 			);
 			path = CategoriesList;
 			sourceTree = "<group>";
@@ -1011,6 +1030,7 @@
 				DB03B93B24F6940C002C4E35 /* CardNumberValidator.swift in Sources */,
 				DB74CF7324F1076900087319 /* MakePaymentFormConvertor.swift in Sources */,
 				DB67F21D24E909320003C0AD /* Cart.swift in Sources */,
+				DB03B94D24F6B749002C4E35 /* CategoriesListItemView.swift in Sources */,
 				DB86F6E824CC43C700B0F609 /* ProductListScreen.swift in Sources */,
 				DB77AC6424E569C8005A79C0 /* CartItem.swift in Sources */,
 				DB0ED8E124CD5837000CFE8B /* StatusBarStyle.swift in Sources */,

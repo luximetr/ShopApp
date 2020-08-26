@@ -17,6 +17,13 @@ struct ProductListItemView: View {
   let price: String
   
   var body: some View {
+    VStack {
+      content
+      dividerView
+    }
+  }
+  
+  private var content: some View {
     HStack {
       imageView
       VStack(alignment: .leading) {
@@ -28,17 +35,15 @@ struct ProductListItemView: View {
       .padding([.leading, .trailing], 4)
       Spacer()
     }
-    .background(appearance.background.primary)
-    .cornerRadius(10)
-    .shadow(color: appearance.background.shadow, radius: 5, y: 5)
-    .frame(height: 110)
+      .frame(height: 110)
+      .background(appearance.background.secondary)
   }
   
   private var imageView: some View {
     WebImage(url: imageURL)
       .resizable()
       .scaledToFill()
-      .frame(width: 110, height: 110)
+      .frame(width: 100, height: 100)
       .clipped()
   }
   
@@ -65,6 +70,11 @@ struct ProductListItemView: View {
       .foregroundColor(appearance.text.primary)
       .padding(.bottom, 8)
   }
+  
+  private var dividerView: some View {
+    appearance.divider.primary.background
+      .frame(height: 1)
+  }
 }
 
 struct ProductListItemView_Previews: PreviewProvider {
@@ -76,14 +86,29 @@ struct ProductListItemView_Previews: PreviewProvider {
         subtitle: "Subtitle jafkdjf lkjadlkf jalkdjf klajdfkl jadklfj akldjfk ladfkj adklfj akldjf kald",
         price: "12.03 fjakld fjlkadj fkajd fkljadlkf jkaldfj  fadkfakld jfklaj dklfja kldjflk ajdfkl"
       )
-        .previewLayout(.fixed(width: 360, height: 140))
+        .previewLayout(.fixed(width: 360, height: 110))
       ProductListItemView(
         imageURL: nil,
         title: "Product",
         subtitle: "Subtitle",
         price: "12.03"
       )
-        .previewLayout(.fixed(width: 360, height: 140))
+        .previewLayout(.fixed(width: 360, height: 110))
+      
+      List {
+        ForEach(mockProducts, id: \.id) { product in
+          NavigationLink(destination: EmptyView(), label: {
+            ProductListItemView(
+              imageURL: product.imageURL,
+              title: product.name,
+              subtitle: product.depiction,
+              price: "$\(product.price)"
+            )
+          })
+            .listRowInsets(EdgeInsets(top: 15, leading: 24, bottom: 0, trailing: 24))
+            .listRowBackground(appearance.background.secondary)
+        }
+      }
     }
     
   }
