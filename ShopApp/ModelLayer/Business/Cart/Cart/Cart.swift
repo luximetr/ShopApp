@@ -45,6 +45,7 @@ class Cart: ObservableObject {
   func removeProduct(_ productId: ProductIdType) {
     guard let index = items.firstIndex(where: { $0.product.id == productId }) else { return }
     items.remove(at: index)
+    removedProductFromCartPublisher.send(productId)
   }
   
   func removeItem(_ item: CartItem) {
@@ -59,5 +60,7 @@ class Cart: ObservableObject {
     return items.contains(where: { $0.product.id == productId })
   }
 }
+
+let removedProductFromCartPublisher = PassthroughSubject<ProductIdType, Never>()
 
 let mockCart = Cart(items: mockCartItems)

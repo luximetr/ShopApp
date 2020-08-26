@@ -14,12 +14,16 @@ struct PaymentSuccessScreen: View {
   @Environment(\.presentationMode) private var presentationMode
   
   private func onContinue() {
-    cart.clear()
     updateIsCartPresentedPublisher.send(false)
+  }
+  
+  private func onAppear() {
+    cart.clear()
   }
   
   var body: some View {
     PaymentSuccessScreenView(onContinue: onContinue)
+    .onAppear(perform: onAppear)
   }
 }
 

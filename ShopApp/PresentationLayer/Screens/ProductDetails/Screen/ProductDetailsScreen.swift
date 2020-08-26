@@ -28,6 +28,11 @@ struct ProductDetailsScreen: View {
     updateIsCartPresentedPublisher.send(true)
   }
   
+  private func onCartRemovedProduct(_ productId: ProductIdType) {
+    guard productId == self.product.id else { return }
+    self.isInCart = false
+  }
+  
   var body: some View {
     ProductDetailsScreenView(
       product: product,
@@ -37,6 +42,7 @@ struct ProductDetailsScreen: View {
     )
       .navigationBarTitle("\(product.name)", displayMode: .inline)
       .navigationBarItems(trailing: cartButton)
+      .onReceive(removedProductFromCartPublisher.receive(on: DispatchQueue.main), perform: onCartRemovedProduct(_:))
   }
   
   private var cartButton: some View {

@@ -814,13 +814,13 @@
 			isa = PBXGroup;
 			children = (
 				DB74CF7F24F16A9A00087319 /* Root */,
-				DB74CF7824F10C6900087319 /* PaymentSuccess */,
-				DB77AC5B24E56055005A79C0 /* CartItemsList */,
-				DB74CF5324EEB8CF00087319 /* Shipping */,
-				DB74CF5E24F0EC9100087319 /* MakePayment */,
 				DB0ED8EC24CDD4E7000CFE8B /* CategoriesList */,
 				DB86F6E624CC437700B0F609 /* ProductList */,
 				DB421EB724D84B3200057B55 /* ProductDetails */,
+				DB77AC5B24E56055005A79C0 /* CartItemsList */,
+				DB74CF5324EEB8CF00087319 /* Shipping */,
+				DB74CF5E24F0EC9100087319 /* MakePayment */,
+				DB74CF7824F10C6900087319 /* PaymentSuccess */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
