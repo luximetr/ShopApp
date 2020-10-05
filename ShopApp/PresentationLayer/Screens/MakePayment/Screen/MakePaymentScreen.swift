@@ -11,7 +11,7 @@ import SwiftUI
 struct MakePaymentScreen: View {
   
   let shippingInfo: ShippingInfo
-  @ObservedObject private var form = MakePaymentScreenForm()
+  @ObservedObject private var form = mockMakePaymentScreenForm// MakePaymentScreenForm()
   @EnvironmentObject var cart: Cart
   @State private var needShowSuccessScreen = false
   

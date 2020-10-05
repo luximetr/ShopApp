@@ -22,7 +22,10 @@ class MakePaymentScreenForm: ObservableObject {
   private var expiredCancellable: AnyCancellable?
   private var cvvCancellable: AnyCancellable?
   
-  init() {
+  init(cardNumber: String = "", expired: String = "", cvv: String = "") {
+    self.cardNumber = cardNumber
+    self.expired = expired
+    self.cvv = cvv
     cardNumberCancellable = $cardNumber.sink(receiveValue: { [weak self] _ in
       self?.cardNumberError.removeAll()
     })
@@ -34,3 +37,9 @@ class MakePaymentScreenForm: ObservableObject {
     })
   }
 }
+
+let mockMakePaymentScreenForm = MakePaymentScreenForm(
+  cardNumber: "4111111111111111",
+  expired: "10/24",
+  cvv: "000"
+)
