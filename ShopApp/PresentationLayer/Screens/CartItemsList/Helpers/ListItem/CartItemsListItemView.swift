@@ -90,6 +90,8 @@ struct CartItemsListItemView: View {
   
 }
 
+#if DEBUG
+
 struct CartItemsListItemView_Previews: PreviewProvider {
   @State static var item = mockCartItem
   static var previews: some View {
@@ -100,3 +102,5 @@ struct CartItemsListItemView_Previews: PreviewProvider {
     })
   }
 }
+
+#endif

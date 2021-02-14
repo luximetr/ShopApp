@@ -21,8 +21,12 @@ struct CategoriesListItemView: View {
   }
 }
 
+#if DEBUG
+
 struct CategoriesListItemView_Previews: PreviewProvider {
   static var previews: some View {
     CategoriesListItemView(category: mockCategory)
   }
 }
+
+#endif

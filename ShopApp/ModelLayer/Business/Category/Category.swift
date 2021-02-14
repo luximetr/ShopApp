@@ -15,7 +15,7 @@ struct Category {
 
 typealias CategoryIdType = String
 
-// Mocks
+#if DEBUG
 
 enum CategoryId: String {
   case earphones
@@ -29,3 +29,5 @@ let mockCategories = [
   Category(id: CategoryId.smartphones.rawValue, name: "Smartphones"),
   Category(id: CategoryId.laptops.rawValue, name: "Laptops")
 ]
+
+#endif

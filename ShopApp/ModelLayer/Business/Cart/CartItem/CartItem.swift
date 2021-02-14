@@ -29,9 +29,13 @@ class CartItem: ObservableObject {
 
 typealias CartItemIdType = String
 
+#if DEBUG
+
 let mockCartItems = [
   CartItem(product: mockProducts[0]),
   CartItem(product: mockProducts[1]),
   CartItem(product: mockProducts[2])
 ]
 let mockCartItem = mockCartItems[0]
+
+#endif

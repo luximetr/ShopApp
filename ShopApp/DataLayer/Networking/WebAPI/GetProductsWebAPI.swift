@@ -9,21 +9,30 @@
 import Foundation
 
 class GetProductsWebAPI: URLSessionWebAPI {
-  
-  func getProducts(categoryId: CategoryIdType, completion: @escaping Completion) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + webAPIDelay, execute: {
-      completion(.success(self.createProducts(categoryId: categoryId)))
-    })
-  }
-  
-  private func createProducts(categoryId: CategoryIdType) -> [Product] {
-    switch categoryId {
-      case CategoryId.earphones.rawValue: return mockEarphoneProducts
-      case CategoryId.smartphones.rawValue: return mockSmartphoneProducts
-      case CategoryId.laptops.rawValue: return mockLaptopProducts
-      default: return []
+    
+    // MARK: - Dependencies
+    
+    private let jsonConvertor = ProductJSONConvertor()
+    
+    // MARK: - Get products
+    func getProducts(categoryId: CategoryIdType, completion: @escaping Completion) {
+        let request = createRequest(categoryId: categoryId)
+        let task = session.dataTask(with: request) { [weak self] data, response, error in
+            guard let strongSelf = self else { return }
+            if let data = data, let jsons = try? JSONSerialization.jsonObject(with: data) as? [JSON] {
+                let products = jsons.compactMap { strongSelf.jsonConvertor.toProduct(json: $0) }
+                completion(.success(products))
+            } else {
+                let failure = strongSelf.parseFailure(error: error)
+                completion(.failure(failure))
+            }
+        }
+        task.resume()
     }
-  }
-  
-  typealias Completion = (WebAPIResult<[Product]>) -> Void
+    
+    private func createRequest(categoryId: CategoryIdType) -> URLRequest {
+        return createGetURLRequest(endpoint: "/categories/" + categoryId + "/products")
+    }
+    
+    typealias Completion = (WebAPIResult<[Product]>) -> Void
 }

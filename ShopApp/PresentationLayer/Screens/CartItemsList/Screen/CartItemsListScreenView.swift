@@ -79,6 +79,8 @@ struct CartItemsListScreenView: View {
   
 }
 
+#if DEBUG
+
 struct CartItemsListScreenView_Previews: PreviewProvider {
   @State static var items = mockCartItems
   static var previews: some View {
@@ -90,3 +92,5 @@ struct CartItemsListScreenView_Previews: PreviewProvider {
     )
   }
 }
+
+#endif

@@ -63,4 +63,8 @@ class Cart: ObservableObject {
 
 let removedProductFromCartPublisher = PassthroughSubject<ProductIdType, Never>()
 
+#if DEBUG
+
 let mockCart = Cart(items: mockCartItems)
+
+#endif

@@ -26,7 +26,7 @@ class URLRequestComposer {
       endpoint: String,
       customHeaders: [String: String],
       contentType: String) -> URLRequest {
-    let url = URL(string: baseURL + "/" + endpoint)!
+    let url = URL(string: baseURL + endpoint)!
     var request = URLRequest(url: url)
     request.addValue(contentType, forHTTPHeaderField: "Content-Type")
     for (_, (headerKey, headerValue)) in customHeaders.enumerated() {

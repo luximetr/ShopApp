@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0270032A25D6D22900112A72 /* CategoryJSONConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270032925D6D22900112A72 /* CategoryJSONConvertor.swift */; };
+		0270032D25D6D44400112A72 /* ProductJSONConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270032C25D6D44400112A72 /* ProductJSONConvertor.swift */; };
 		DB03B93B24F6940C002C4E35 /* CardNumberValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B93A24F6940C002C4E35 /* CardNumberValidator.swift */; };
 		DB03B93E24F695AA002C4E35 /* ValidatorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B93D24F695AA002C4E35 /* ValidatorResult.swift */; };
 		DB03B94124F695E7002C4E35 /* ValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03B94024F695E7002C4E35 /* ValidatorError.swift */; };
@@ -94,6 +96,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0270032925D6D22900112A72 /* CategoryJSONConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryJSONConvertor.swift; sourceTree = "<group>"; };
+		0270032C25D6D44400112A72 /* ProductJSONConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductJSONConvertor.swift; sourceTree = "<group>"; };
 		DB03B93A24F6940C002C4E35 /* CardNumberValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumberValidator.swift; sourceTree = "<group>"; };
 		DB03B93D24F695AA002C4E35 /* ValidatorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorResult.swift; sourceTree = "<group>"; };
 		DB03B94024F695E7002C4E35 /* ValidatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorError.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				DB0ED8EA24CDC80C000CFE8B /* Product.swift */,
+				0270032C25D6D44400112A72 /* ProductJSONConvertor.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				DB16AB0124CFC28E00B33B2A /* Category.swift */,
+				0270032925D6D22900112A72 /* CategoryJSONConvertor.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -991,6 +997,7 @@
 				DB03B94324F69672002C4E35 /* CardExpiredValidator.swift in Sources */,
 				DB74CF7724F1090000087319 /* String+Extension.swift in Sources */,
 				DB16AB3324D0751000B33B2A /* ServiceError.swift in Sources */,
+				0270032A25D6D22900112A72 /* CategoryJSONConvertor.swift in Sources */,
 				DB77AC5E24E56075005A79C0 /* CartItemsListScreen.swift in Sources */,
 				DB77AC6E24E5925E005A79C0 /* StepperView.swift in Sources */,
 				DB03B94524F697EF002C4E35 /* CardExpiredConvertor.swift in Sources */,
@@ -1022,6 +1029,7 @@
 				DB421EB224D83BD100057B55 /* CategoriesListScreenView.swift in Sources */,
 				DB03B94924F69AEB002C4E35 /* CardCVVValidator.swift in Sources */,
 				DB421EAD24D836B000057B55 /* CategoriesService.swift in Sources */,
+				0270032D25D6D44400112A72 /* ProductJSONConvertor.swift in Sources */,
 				DB16AB0224CFC28E00B33B2A /* Category.swift in Sources */,
 				DB74CF6F24F1054E00087319 /* PaymentInfo.swift in Sources */,
 				DB0ED8E324CD5AEF000CFE8B /* AppearancesFactory.swift in Sources */,

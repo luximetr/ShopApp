@@ -12,7 +12,7 @@ import Combine
 struct RootScreen: View {
   
   @State var isCartPresented: Bool = false
-  @ObservedObject var cart = mockCart// Cart()
+  @ObservedObject var cart = Cart()
   
   var body: some View {
     CategoriesListScreen()
@@ -31,8 +31,10 @@ struct RootScreen: View {
 
 let updateIsCartPresentedPublisher = PassthroughSubject<Bool, Never>()
 
+#if DEBUG
 struct RootScreen_Previews: PreviewProvider {
   static var previews: some View {
     RootScreen()
   }
 }
+#endif

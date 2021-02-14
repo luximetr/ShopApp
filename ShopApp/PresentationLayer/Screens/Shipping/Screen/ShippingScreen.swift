@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ShippingScreen: View {
   
-  @State var form = mockShippingScreenForm// ShippingScreenForm()
+  @State var form = ShippingScreenForm()
   @State var needShowMakePayment = false
   
   private let convertor = ShippingScreenFormConvertor()
@@ -65,8 +65,10 @@ struct ShippingScreen: View {
   }
 }
 
+#if DEBUG
 struct ShippingScreen_Previews: PreviewProvider {
   static var previews: some View {
     ShippingScreen()
   }
 }
+#endif

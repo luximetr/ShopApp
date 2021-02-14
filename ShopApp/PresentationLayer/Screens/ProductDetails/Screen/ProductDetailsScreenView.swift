@@ -99,6 +99,7 @@ struct ProductDetailsScreenView: View {
   }
 }
 
+#if DEBUG
 struct ProductDetailsScreenView_Previews: PreviewProvider {
   @State static var isInCart = true
   static var previews: some View {
@@ -110,3 +111,4 @@ struct ProductDetailsScreenView_Previews: PreviewProvider {
     )
   }
 }
+#endif

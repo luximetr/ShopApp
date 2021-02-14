@@ -22,7 +22,7 @@ class URLSessionWebAPI {
   
   init() {
     self.session = .shared
-    self.requestComposer = URLRequestComposer(baseURL: "baseURL://")
+    self.requestComposer = URLRequestComposer(baseURL: "http://localhost:8080")
   }
   
   // MARK: - Create request
@@ -56,6 +56,20 @@ class URLSessionWebAPI {
     request.httpBody = body
     return request
   }
+    
+    func createGetURLRequest(
+        endpoint: String,
+        customHeaders: [String: String] = [:],
+        params: [String: Any] = [:]
+    ) -> URLRequest {
+        var request = requestComposer.createRequest(
+            endpoint: endpoint,
+            customHeaders: customHeaders,
+            contentType: "application/json"
+        )
+        request.httpMethod = "GET"
+        return request
+    }
   
   // MARK: - Parse webAPIError
   

@@ -59,6 +59,7 @@ struct ProductListScreenView: View {
   }
 }
 
+#if DEBUG
 struct ProductListScreenView_Previews: PreviewProvider {
   @State static var isLoading = false
   @State static var products = mockProducts
@@ -69,3 +70,4 @@ struct ProductListScreenView_Previews: PreviewProvider {
     )
   }
 }
+#endif

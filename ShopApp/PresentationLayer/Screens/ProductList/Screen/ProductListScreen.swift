@@ -55,6 +55,7 @@ struct ProductListScreen: View {
   }
 }
 
+#if DEBUG
 struct ProductListScreen_Previews: PreviewProvider {
   static var previews: some View {
     ProductListScreen(
@@ -62,3 +63,4 @@ struct ProductListScreen_Previews: PreviewProvider {
     )
   }
 }
+#endif

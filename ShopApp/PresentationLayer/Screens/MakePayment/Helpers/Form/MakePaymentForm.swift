@@ -38,8 +38,10 @@ class MakePaymentScreenForm: ObservableObject {
   }
 }
 
+#if DEBUG
 let mockMakePaymentScreenForm = MakePaymentScreenForm(
   cardNumber: "4111111111111111",
   expired: "10/24",
   cvv: "000"
 )
+#endif

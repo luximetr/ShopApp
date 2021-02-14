@@ -11,7 +11,7 @@ import SwiftUI
 struct MakePaymentScreen: View {
   
   let shippingInfo: ShippingInfo
-  @ObservedObject private var form = mockMakePaymentScreenForm// MakePaymentScreenForm()
+  @ObservedObject private var form = MakePaymentScreenForm()
   @EnvironmentObject var cart: Cart
   @State private var needShowSuccessScreen = false
   
@@ -75,8 +75,11 @@ struct MakePaymentScreen: View {
   }
 }
 
+
+#if DEBUG
 struct MakePaymentScreen_Previews: PreviewProvider {
   static var previews: some View {
     MakePaymentScreen(shippingInfo: mockShippingInfo)
   }
 }
+#endif

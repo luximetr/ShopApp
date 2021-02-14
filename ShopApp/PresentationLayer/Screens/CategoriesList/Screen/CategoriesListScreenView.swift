@@ -35,6 +35,9 @@ struct CategoriesListScreenView: View {
   }
 }
 
+
+#if DEBUG
+
 struct CategoriesListScreenView_Previews: PreviewProvider {
   @State static var categories = mockCategories
   @State static var isLoading = false
@@ -45,3 +48,5 @@ struct CategoriesListScreenView_Previews: PreviewProvider {
     )
   }
 }
+
+#endif

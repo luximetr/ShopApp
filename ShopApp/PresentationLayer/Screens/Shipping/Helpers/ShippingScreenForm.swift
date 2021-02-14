@@ -23,6 +23,7 @@ struct ShippingScreenForm {
   var shippingMethodError: String = ""
 }
 
+#if DEBUG
 let mockShippingScreenForm = ShippingScreenForm(
   fullName: "John Doe",
   fullNameError: "",
@@ -36,3 +37,4 @@ let mockShippingScreenForm = ShippingScreenForm(
   countryError: "",
   shippingMethod: "FedEx delivery",
   shippingMethodError: "")
+#endif
